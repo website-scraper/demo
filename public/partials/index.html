@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col col-md-8 col-md-offset-2 form-container">
+        <h2 class="text-center">Scrape web-page</h2>
+        <form role="form" class="form-horizontal" name="scraperForm" method="post" novalidate>
+
+            <div class="form-group" ng-class="{'has-error': scraperForm.url.$invalid && scraperForm.url.$dirty}">
+                <div class="col-md-12">
+                    <input type="url" class="form-control" ng-model="data.url" name="url" required placeholder="Url">
+                    <p class="help-block" ng-show="scraperForm.url.$dirty && scraperForm.url.$error.required">Url is empty</p>
+                    <p class="help-block" ng-show="scraperForm.url.$dirty && scraperForm.url.$error.url">Invalid url</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="text-right">
+                        <a class="text-muted" href="#" ng-show="!showAdvancedOptions" ng-click="toggleAdvancedOptions()">
+                            <span>Show advanced options</span>
+                            <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                        </a>
+                        <a class="text-muted" href="#" ng-show="showAdvancedOptions" ng-click="toggleAdvancedOptions()">
+                            <span>Hide advanced options</span>
+                            <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <br>
+                    <div ng-show="showAdvancedOptions">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">User-Agent:</label>
+                            <div class="col-md-10">
+                                <select class="form-control"
+                                        ng-model="data.request.headers['User-Agent']"
+                                        ng-options="item.userAgent as item.title for item in userAgents">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Cookies:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="cookies" required placeholder="key1=value1; key2=value2;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-8">
+                    <button class="btn btn-success btn-block" ng-click='add()' ng-disabled="scraperForm.$invalid">Go</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-default btn-block" ng-click='reset()'>Reset</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
