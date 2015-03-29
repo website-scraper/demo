@@ -7,6 +7,4 @@ var app = express();
 addMiddlewares(app);
 addRoutes(app);
 
-app.listen(config.port, function () {
-	console.log('Example app listening at %s', config.port);
-});
+app.listen(config.port);

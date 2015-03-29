@@ -5,7 +5,7 @@
 
             <div class="form-group" ng-class="{'has-error': scraperForm.url.$invalid && scraperForm.url.$dirty}">
                 <div class="col-md-12">
-                    <input type="url" class="form-control" ng-model="data.url" name="url" required placeholder="Url">
+                    <input type="url" class="form-control" ng-model="data.url" name="url" required placeholder="http://example.com/">
                     <p class="help-block" ng-show="scraperForm.url.$dirty && scraperForm.url.$error.required">Url is empty</p>
                     <p class="help-block" ng-show="scraperForm.url.$dirty && scraperForm.url.$error.url">Invalid url</p>
                 </div>

@@ -22,6 +22,7 @@
     "angular-route": "~1.2.16",
     "angular-cookies": "~1.2.16",
     "angular-block-ui": "~0.0.8",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "angular-resource": "~1.3.15"
   }
 }

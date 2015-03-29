@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col col-md-8 col-md-offset-2">
         <div class="col-md-6">
-            <a href="{{filename}}" class="btn btn-primary btn-block" target="_blank">
+            <a href="{{previewSrc}}" class="btn btn-primary btn-block" target="_blank">
                 <span class="glyphicon glyphicon-search"></span> Просмотреть в новой вкладке
             </a>
         </div>
         <div class="col-md-3">
-            <a href="/sites/{{filename}}/download" class="btn btn-success btn-block" target="_blank">
+            <a href="{{downloadSrc}}" class="btn btn-success btn-block" target="_blank">
                 <span class="glyphicon glyphicon-download-alt"></span> Загрузить архив
             </a>
         </div>
@@ -15,5 +15,10 @@
                 <span class="glyphicon glyphicon-home"></span> Назад
             </a>
         </div>
+    </div>
+</div>
+<div class="row height-100">
+    <div class="col col-md-8 col-md-offset-2 iframe-wrap">
+        <iframe class="iframe" src="{{previewSrc}}"></iframe>
     </div>
 </div>

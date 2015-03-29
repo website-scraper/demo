@@ -18,7 +18,19 @@ function getSiteFullPath (siteDirname) {
 }
 
 function getSitesDirectories() {
-	return fs.readdirAsync(config.directory);
+	var root = config.directory;
+	var directories = [];
+	return fs.readdirAsync(root).then(function(files) {
+		return Promise.map(files, function(file) {
+			return fs.statAsync(root + '/' + file).then(function(stat){
+				if (stat.isDirectory()) {
+					directories.push(file);
+				}
+			});
+		}).then(function() {
+			return Promise.resolve(directories);
+		});
+	});
 }
 
 var service = {
@@ -34,12 +46,20 @@ var service = {
 
 		return scraper.scrape(scraperOptions).then(function(scrapedPagesArray) {
 			var data = scrapedPagesArray[0];
-			data.filename = siteDirname;
+			delete data.filename;
+			data.directory = siteDirname;
 			return Promise.resolve(data);
 		});
 	},
 
-	list: getSitesDirectories,
+	list: function list() {
+		return getSitesDirectories().then(function (directories) {
+			var list = directories.map(function (directory) {
+				return { directory: directory };
+			});
+			return Promise.resolve(list);
+		})
+	},
 
 	getDirectory: function getDirectory(options) {
 		return getSitesDirectories().then(function (directories) {
