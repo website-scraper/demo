@@ -20,7 +20,14 @@ angular.module('app').controller('CreateCtrl', function ($scope, $http, $locatio
 	};
 
 	$scope.setDefaults = function () {
-		var defaults = { url: '' };
+		var defaults = {
+			url: '' ,
+			request: {
+				headers: {
+					'User-Agent': $scope.userAgents[0].userAgent
+				}
+			}
+		};
 		$scope.data = angular.copy(defaults);
 	};
 

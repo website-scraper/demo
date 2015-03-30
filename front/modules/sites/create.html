@@ -37,7 +37,9 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Cookies:</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" name="cookies" required placeholder="key1=value1; key2=value2;">
+                                <input type="text" class="form-control"
+                                    placeholder="key1=value1; key2=value2;"
+                                    ng-model="data.request.headers['Cookie']">
                             </div>
                         </div>
                     </div>
