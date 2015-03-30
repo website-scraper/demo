@@ -1,15 +1,14 @@
 angular.module('app').factory('progressInterceptor', ['$q', function ($q) {
 	var depth = 0;
-	var loaderClass = 'ajax-loader-' + (Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-
 	var loader = $('#ajax-loader');
 
 	function start () {
+		var loaderClass = 'ajax-loader-' + (Math.floor(Math.random() * (3 - 1 + 1)) + 1);
 		loader.removeClass('hidden').addClass(loaderClass);
 	}
 
 	function stop () {
-		loader.addClass('hidden').removeClass(loaderClass);
+		loader.addClass('hidden').removeClass('ajax-loader-1 ajax-loader-2 ajax-loader-3');
 	}
 
 	return {
