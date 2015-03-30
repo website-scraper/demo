@@ -8,8 +8,7 @@ var config = {
 	styles: {
 		src: [
 			'./public/bower_components/bootstrap/dist/css/bootstrap.min.css',
-			'./public/bower_components/angular-block-ui/dist/angular-block-ui.min.css',
-			'./public/css/bootstrap.min.css',
+			'./public/css/bootstrap-theme.min.css',
 			'./public/css/style.css'
 		],
 
@@ -34,9 +33,9 @@ var config = {
 			'./public/bower_components/angular/angular.min.js',
 			'./public/bower_components/angular-route/angular-route.min.js',
 			'./public/bower_components/angular-resource/angular-resource.min.js',
-			'./public/bower_components/angular-block-ui/dist/angular-block-ui.min.js',
 
 			'./front/app.js',
+			'./front/routes.js',
 			'./front/modules/**/*.js',
 			'./front/services/*.js',
 			'./front/resources/*.js',

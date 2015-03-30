@@ -2,19 +2,16 @@
 
 angular.module('app.resources', ['ngResource']);
 angular.module('app.templates', []);
+angular.module('app.services', []);
 
-angular.module('app', ['ngRoute', 'blockUI', 'app.resources', 'app.templates'])
-	.config(['$routeProvider', '$locationProvider', 'blockUIConfigProvider',
-		function ($routeProvider, $locationProvider, blockUIConfigProvider) {
+angular.module('app', ['ngRoute', 'app.resources', 'app.templates', 'app.services'])
+	.config(['$routeProvider', '$locationProvider', '$httpProvider',
+		function ($routeProvider, $locationProvider, $httpProvider) {
 
-			$routeProvider
-				.when('/', { templateUrl: 'sites/create.html', controller: 'CreateCtrl' })
-				.when('/new', { templateUrl: 'sites/create.html', controller: 'CreateCtrl' })
-				.when('/list', { templateUrl: 'sites/list.html', controller: 'ListCtrl' })
-				.when('/view/:directory', { templateUrl: 'sites/view.html', controller: 'ViewCtrl' })
-				.otherwise({ redirectTo: '/' });
+			$httpProvider.interceptors.push(
+				'progressInterceptor'
+			);
 
-			$locationProvider.html5Mode(true);
-			blockUIConfigProvider.delay(1000);
+			//blockUIConfigProvider.delay(1000);
 		}])
 	.run(['$rootScope', '$location', '$http', function($rootScope, $location, $http) {}]);
