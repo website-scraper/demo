@@ -9,7 +9,8 @@ angular.module('app', ['ngRoute', 'app.resources', 'app.templates', 'app.service
 		function ($routeProvider, $locationProvider, $httpProvider) {
 
 			$httpProvider.interceptors.push(
-				'progressInterceptor'
+				'progressInterceptor',
+				'errorInterceptor'
 			);
 
 			//blockUIConfigProvider.delay(1000);

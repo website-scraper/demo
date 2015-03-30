@@ -29,10 +29,23 @@
         </div>
     </div>
 </div>
-<div ng-view class="container" id="content"></div>
+
+<div class="container" id="content">
+
+    <div class="row" ng-show="$root.hasErrors">
+        <div class="col col-md-8 col-md-offset-2">
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert" ng-click="$root.hasErrors = false">×</button>
+                Something went wrong. Try again later.
+            </div>
+        </div>
+    </div>
+
+    <div class="height-100-percents" ng-view></div>
+</div>
 <div class="hidden" id="ajax-loader">
-        <div class="overlay"></div>
-        <i></i>
+    <div class="overlay"></div>
+    <i></i>
 </div>
 <script src="/app.js"></script>
 </body>
