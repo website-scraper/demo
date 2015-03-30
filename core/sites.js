@@ -68,7 +68,7 @@ var service = {
 			var localDirectory = getSiteFullPath(siteDirname);
 
 			if (!exists) {
-				return Promise.reject('Site ' + siteDirname + ' was not found');
+				return Promise.reject({ errors: { directory: 'Site ' + options.dirname + ' was not found' }});
 			}
 
 			return Promise.resolve({ directory: localDirectory });
