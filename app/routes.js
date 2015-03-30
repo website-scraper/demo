@@ -1,5 +1,7 @@
+var controller = require('app-controller');
+
 var index = require('./controllers/index');
-var sites = require('./controllers/sites');
+var sites = controller(require('./controllers/sites'));
 
 module.exports = function(app) {
 
