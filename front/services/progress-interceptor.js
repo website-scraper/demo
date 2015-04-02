@@ -1,14 +1,26 @@
 angular.module('app').factory('progressInterceptor', ['$q', function ($q) {
 	var depth = 0;
+
 	var loader = $('#ajax-loader');
+	var minLoaderIndex = 0;
+	var maxLoaderIndex = 6;
+	var currentLoaderIndex;
+
+	function getLoaderClass(i) {
+		return 'ajax-loader-' + i;
+	}
+
+	function getLoaderIndex() {
+		return Math.floor(Math.random() * (maxLoaderIndex - minLoaderIndex + 1));
+	}
 
 	function start () {
-		var loaderClass = 'ajax-loader-' + (Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-		loader.removeClass('hidden').addClass(loaderClass);
+		currentLoaderIndex = getLoaderIndex();
+		loader.removeClass('hidden').addClass(getLoaderClass(currentLoaderIndex));
 	}
 
 	function stop () {
-		loader.addClass('hidden').removeClass('ajax-loader-1 ajax-loader-2 ajax-loader-3');
+		loader.addClass('hidden').removeClass(getLoaderClass(currentLoaderIndex));
 	}
 
 	return {

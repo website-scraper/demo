@@ -40,6 +40,9 @@ html, body {
   margin-left: -200px;
   z-index: 1051;
 }
+#ajax-loader.ajax-loader-0 i {
+  background: url("/img/loader-0.gif") center center no-repeat;
+}
 #ajax-loader.ajax-loader-1 i {
   background: url("/img/loader-1.gif") center center no-repeat;
 }
@@ -48,4 +51,13 @@ html, body {
 }
 #ajax-loader.ajax-loader-3 i {
   background: url("/img/loader-3.gif") center center no-repeat;
+}
+#ajax-loader.ajax-loader-4 i {
+  background: url("/img/loader-4.gif") center center no-repeat;
+}
+#ajax-loader.ajax-loader-5 i {
+  background: url("/img/loader-5.gif") center center no-repeat;
+}
+#ajax-loader.ajax-loader-6 i {
+  background: url("/img/loader-6.gif") center center no-repeat;
 }
