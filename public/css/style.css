@@ -61,3 +61,6 @@ html, body {
 #ajax-loader.ajax-loader-6 i {
   background: url("/img/loader-6.gif") center center no-repeat;
 }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

@@ -32,7 +32,7 @@
 
 <div class="container" id="content">
 
-    <div class="row" ng-show="$root.hasErrors">
+    <div class="row" ng-show="$root.hasErrors" ng-cloak>
         <div class="col col-md-8 col-md-offset-2">
             <div class="alert alert-dismissible alert-danger">
                 <button type="button" class="close" data-dismiss="alert" ng-click="$root.hasErrors = false">×</button>
