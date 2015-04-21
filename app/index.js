@@ -1,3 +1,5 @@
+require('pmx').init();
+
 var express = require('express');
 var addMiddlewares = require('./middlewares');
 var addRoutes = require('./routes');
