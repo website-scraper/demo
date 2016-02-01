@@ -6,6 +6,7 @@ var url = require('url');
 var fs = Promise.promisifyAll(require('fs'));
 var path = require('path');
 var scraper = require('website-scraper');
+var format = require('string-template');
 
 function getSiteDirname (siteUrl) {
 	var urlObj = url.parse(siteUrl);
@@ -33,6 +34,22 @@ function getSitesDirectories() {
 	});
 }
 
+function buildSiteObject(directory) {
+	return {
+		directory: directory,
+		previewPath: format(config.previewPath, {directory: directory}),
+		downloadPath: format(config.downloadPath, {directory: directory})
+	}
+}
+
+function getNotFoundError(directory) {
+	return {
+		errors: {
+			directory: 'Site ' + directory + ' was not found'
+		}
+	};
+}
+
 var service = {
 	scrape: function scrape(options) {
 		var siteDirname = getSiteDirname(options.url);
@@ -44,34 +61,41 @@ var service = {
 			request: options.request
 		});
 
-		return scraper.scrape(scraperOptions).then(function(scrapedPagesArray) {
-			var data = scrapedPagesArray[0];
-			delete data.filename;
-			data.directory = siteDirname;
-			return Promise.resolve(data);
+		return scraper.scrape(scraperOptions).then(function() {
+			return Promise.resolve(buildSiteObject(siteDirname));
 		});
 	},
 
 	list: function list() {
 		return getSitesDirectories().then(function (directories) {
-			var list = directories.map(function (directory) {
-				return { directory: directory };
-			});
+			var list = directories.map(buildSiteObject);
 			return Promise.resolve(list);
 		})
 	},
 
-	getDirectory: function getDirectory(options) {
+	find: function find(dirname) {
 		return getSitesDirectories().then(function (directories) {
-			var siteDirname = options.dirname;
-			var exists = directories.indexOf(siteDirname) > -1;
-			var localDirectory = getSiteFullPath(siteDirname);
+			var found = _.find(directories, function(el) {
+				return el === dirname;
+			});
 
-			if (!exists) {
-				return Promise.reject({ errors: { directory: 'Site ' + options.dirname + ' was not found' }});
+			if (!found) {
+				return Promise.reject(getNotFoundError(dirname));
 			}
 
-			return Promise.resolve({ directory: localDirectory });
+			return Promise.resolve(buildSiteObject(found));
+		})
+	},
+
+	getFullPath: function getFullPath(dirname) {
+		return getSitesDirectories().then(function (directories) {
+			var exists = directories.indexOf(dirname) > -1;
+
+			if (!exists) {
+				return Promise.reject(getNotFoundError(dirname));
+			}
+
+			return Promise.resolve(getSiteFullPath(dirname));
 		});
 	}
 };

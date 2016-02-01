@@ -1,8 +1,7 @@
-angular.module('app.resources').factory('sites', ['$resource', '$http',
-	function ($resource, $http) {
-		return $resource('/sites/:directory', { directory: '@directory' }, {
-			list: { method: 'GET', isArray: true },
-			create: { method: 'POST' }
-		});
-	}
-]);
+angular.module('app.resources').factory('sites', function ($resource) {
+	return $resource('/sites/:directory', { directory: '@directory' }, {
+		list: { method: 'GET', isArray: true },
+		get: { method: 'GET' },
+		create: { method: 'POST' }
+	});
+});
