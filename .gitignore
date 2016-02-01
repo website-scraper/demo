@@ -3,6 +3,5 @@ node_modules
 public/bower_components
 public/files
 public/fonts
-public/app.js
-public/app.css
+public/dist
 front/.template-cache

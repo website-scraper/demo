@@ -4,6 +4,5 @@ angular.module('app').controller('ViewCtrl', function ($scope, $http, $location,
 	$scope.site = { directory: $routeParams.directory };
 
 	$scope.downloadSrc = '/sites/' + $scope.site.directory + '/download/';
-	$scope.previewSrc = '/files/' + $scope.site.directory;
+	$scope.previewSrc = '/static/files/' + $scope.site.directory;
 });
-

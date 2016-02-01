@@ -13,7 +13,7 @@ var config = {
 		],
 
 		dist: 'app.css',
-		dest: './public'
+		dest: './public/dist'
 	},
 
 	fonts: {
@@ -44,7 +44,7 @@ var config = {
 		],
 
 		dist: 'app.js',
-		dest: './public'
+		dest: './public/dist'
 	}
 };
 
