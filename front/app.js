@@ -5,14 +5,7 @@ angular.module('app.templates', []);
 angular.module('app.services', []);
 
 angular.module('app', ['ngRoute', 'app.resources', 'app.templates', 'app.services'])
-	.config(['$routeProvider', '$locationProvider', '$httpProvider',
-		function ($routeProvider, $locationProvider, $httpProvider) {
-
-			$httpProvider.interceptors.push(
-				'progressInterceptor',
-				'errorInterceptor'
-			);
-
-			//blockUIConfigProvider.delay(1000);
+	.config(['$httpProvider', function ($httpProvider) {
+			$httpProvider.interceptors.push('progressInterceptor', 'errorInterceptor');
 		}])
-	.run(['$rootScope', '$location', '$http', function($rootScope, $location, $http) {}]);
+	.run();
