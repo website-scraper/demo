@@ -55,9 +55,10 @@ var service = {
 		var siteDirname = getSiteDirname(options.url);
 		var siteFullPath = getSiteFullPath(siteDirname);
 
-		var scraperOptions = _.extend(defaults, {
+		var scraperOptions = _.extend({}, defaults, {
 			urls: [options.url],
 			directory: siteFullPath,
+			// If defaults object has request property, it will be superseded by options.request
 			request: options.request
 		});
 
