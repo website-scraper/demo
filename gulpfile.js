@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
 var template_cache = require('gulp-angular-templatecache');
 var run_sequence = require('run-sequence');
 

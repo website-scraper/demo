@@ -1,29 +1,33 @@
 {
   "name": "web-scraper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/s0ph1e/web-scraper.git"
+  },
+  "author": "s0ph1e",
+  "license": "MIT",
   "dependencies": {
     "app-controller": "^0.3.0",
-    "archiver": "^0.14.3",
-    "bluebird": "^2.9.20",
+    "archiver": "^1.2.0",
+    "bluebird": "^3.4.6",
     "body-parser": "^1.12.0",
     "ejs": "^2.2.4",
     "express": "^4.11.1",
-    "lodash": "^3.5.0",
-    "pmx": "^0.3.9",
+    "lodash": "^4.17.2",
+    "pmx": "^0.6.8",
     "string-template": "^1.0.0",
-    "website-scraper": "^1.0.0"
+    "website-scraper": "s0ph1e/node-website-scraper"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
     "run-sequence": "^1.0.2",
-    "gulp-angular-templatecache": "^1.6.0",
+    "gulp-angular-templatecache": "^2.0.0",
     "gulp-concat": "^2.5.2",
     "gulp-uglify": "^1.1.0"
   }
