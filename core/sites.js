@@ -5,7 +5,7 @@ var Promise = require('bluebird');
 var url = require('url');
 var fs = Promise.promisifyAll(require('fs'));
 var path = require('path');
-var scraper = require('website-scraper');
+var scrapeWebsite = require('website-scraper');
 var format = require('string-template');
 
 function getSiteDirname (siteUrl) {
@@ -62,7 +62,7 @@ var service = {
 			request: options.request
 		});
 
-		return scraper.scrape(scraperOptions).then(function() {
+		return scrapeWebsite(scraperOptions).then(function() {
 			return Promise.resolve(buildSiteObject(siteDirname));
 		});
 	},
