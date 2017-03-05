@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/index.js",
   "scripts": {
-    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp build",
+    "postinstall": "bower install && gulp build",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
