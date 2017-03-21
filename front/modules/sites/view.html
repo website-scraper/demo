@@ -12,8 +12,16 @@
         </div>
     </div>
 </div>
+<div class="row view-note">
+    <div class="col col-md-8 col-md-offset-2">
+        <p class="text-muted">
+            Note that page is opened in sandbox mode so scripts are not working.
+            To see full version of page open it in new tab.
+        </p>
+    </div>
+</div>
 <div class="row height-100-percents">
     <div class="col col-md-8 col-md-offset-2 iframe-wrap">
-        <iframe class="iframe" ng-src="{{site.previewPath}}"></iframe>
+        <iframe sandbox class="iframe" ng-src="{{site.previewPath}}"></iframe>
     </div>
 </div>
