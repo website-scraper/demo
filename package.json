@@ -15,14 +15,14 @@
   "author": "s0ph1e",
   "license": "MIT",
   "dependencies": {
-    "app-controller": "^0.3.0",
-    "archiver": "^1.2.0",
+    "app-controller": "^0.5.0",
+    "archiver": "^2.0.3",
     "bluebird": "^3.4.6",
     "body-parser": "^1.12.0",
     "ejs": "^2.2.4",
     "express": "^4.11.1",
     "lodash": "^4.17.2",
-    "pmx": "^0.6.8",
+    "pmx": "^1.2.0",
     "string-template": "^1.0.0",
     "website-scraper": "s0ph1e/node-website-scraper"
   },
@@ -31,7 +31,7 @@
     "gulp": "^3.8.11",
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-concat": "^2.5.2",
-    "gulp-uglify": "^1.1.0",
-    "run-sequence": "^1.0.2"
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^2.1.0"
   }
 }
