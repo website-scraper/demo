@@ -15,7 +15,7 @@
   "author": "s0ph1e",
   "license": "MIT",
   "dependencies": {
-    "app-controller": "^0.3.0",
+    "app-controller": "^0.5.0",
     "archiver": "^1.2.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.12.0",
