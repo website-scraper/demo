@@ -22,7 +22,7 @@
     "ejs": "^2.2.4",
     "express": "^4.11.1",
     "lodash": "^4.17.2",
-    "pmx": "^0.6.8",
+    "pmx": "^1.6.7",
     "string-template": "^1.0.0",
     "website-scraper": "s0ph1e/node-website-scraper"
   },
