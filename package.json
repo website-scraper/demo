@@ -26,6 +26,9 @@
     "string-template": "^1.0.0",
     "website-scraper": "github:website-scraper/node-website-scraper#4.x"
   },
+  "overrides": {
+    "graceful-fs": "^4.2.10"
+  },
   "devDependencies": {
     "bower": "^1.8.0",
     "gulp": "^3.8.11",
